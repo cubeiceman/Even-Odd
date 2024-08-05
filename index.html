@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Elliott">
+    <title>Even/Odd</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+  </head>
+
+<body>
+    <script>
+        // setup variables
+        let quit = false;
+        let choice;
+        let result;
+        let sum;
+        let wins = 0;
+        let losses = 0;
+        let again;
+
+        const name = prompt("Welcome to Even/Odd! What is your name?");
+
+        while (!quit) {
+            choice = prompt("Do you pick even or odd?");
+
+            // sum of nums
+            sum = ((Math.floor(Math.random() * 4) + 1) + (Math.floor(Math.random() * 4) + 1) )
+            result = (sum % 2 === 0) ? "even" : "odd";
+
+            switch (choice.toLowerCase() === result) {
+                case true:
+                    wins++;
+                    again = prompt(`${name}, you chose ${choice}, the sum was ${sum} which is an ${result} number, you Win!\nThat's ${wins} wins and ${losses} losses!\nWould you like to play again? y/n`);
+                    if (again === `n`) {
+                        quit = true;
+                        break;
+                    }
+                    while (again != `y`) {
+                        again = prompt(`Enter y or n.`);
+                    }
+                    break;
+                default:
+                    losses++;
+                    again = prompt(`${name}, you chose ${choice}, the sum was ${sum} which is an ${result} number, you Lose!\nThat's ${wins} wins and ${losses} losses!\nWould you like to play again? y/n`);
+                    if (again === `n`) {
+                        quit = true;
+                        break;
+                    }
+                    while (again != `y`) {
+                        again = prompt(`Enter y or n.`);
+                    }
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
+
